@@ -182,7 +182,7 @@ Secure json data is a map of settings that will be encrypted with [secret key](/
 | accessKey | string | Cloudwatch | Access key for connecting to Cloudwatch |
 | secretKey | string | Cloudwatch | Secret key for connecting to Cloudwatch |
 
-### Dashboards
+## Dashboards
 
 It's possible to manage dashboards in Grafana by adding one or more yaml config files in the [`provisioning/dashboards`](/installation/configuration/#provisioning) directory. Each config file can contain a list of `dashboards providers` that will load dashboards into Grafana from the local filesystem.
 
@@ -214,3 +214,19 @@ By default Grafana will delete dashboards in the database if the file is removed
 > which leads to problems if you re-use settings that are supposed to be unique.
 > Be careful not to re-use the same `title` multiple times within a folder
 > or `uid` within the same installation as this will cause weird behaviours.
+
+## Alert Notification Channels
+
+> This feature is available from 5.2
+
+Alert Motification Channels can be provisionned by adding one or more yaml config files in the [`provisioning/alert_notifications`](/installation/configuration/#provisioning) directory. Each config file can contain a list of `alert_notifications` that will be added or updated during start up. If the notification channel already exists, Grafana will update it to match the configuration file. The config file can also contain a list of datasources that should be deleted. That list is called `delete_alert_notifications`. Grafana will delete datasources listed in `delete_alert_notifications` before inserting/updating those in the `alert_notifications` list.
+
+### Example Alert Notification Channels Config File
+
+```
+...
+```
+
+### Supported Settings
+
+...

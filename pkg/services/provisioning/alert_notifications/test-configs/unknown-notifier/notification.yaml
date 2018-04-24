@@ -1,0 +1,5 @@
+apiVersion: 0
+
+alert_notifications:
+  - name: notification-channel-1
+    type: nonexisting
